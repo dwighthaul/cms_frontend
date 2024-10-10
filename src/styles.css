@@ -1,0 +1,42 @@
+.title-container {
+	background-color: #fafafa;
+	padding: 10px;
+	font-size: large;
+	color: #16191f;
+}
+
+.app-container {
+	border: 1px #0f1116;
+	box-shadow: 0px 0px 3px 0px #99a2b7;
+	margin: 7px;
+}
+
+.content-container {
+	background-color: #e9ebee;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+
+
+/***
+.title-container {
+	background-color: #082468;
+	padding: 10px;
+	font-size: large;
+	color: azure;
+}
+
+.app-container {
+	border: 1px solid;
+	padding: 7px;
+	box-shadow: 10px 10px;
+	margin-bottom: 20px;
+}
+
+.content-container {
+	background-color: #c2c6e3;
+	padding: 10px;
+}
+
+*/

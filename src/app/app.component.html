@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">AngularApp</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about">About</a>
+        </li>
+      </ul>
+      <button class="btn btn-outline-primary ms-3" type="button" routerLink="/login">User</button>
+      <button class="btn btn-outline-primary ms-3" type="button" routerLink="/login">Login</button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Main content area where routed components will be displayed -->
+<div class="">
+  <router-outlet></router-outlet> <!-- Chargera les composants en fonction des routes -->
+</div>
+
+<!-- Footer (optionnel) -->
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">&copy; 2024 AngularApp - Tous droits réservés.</span>
+  </div>
+</footer>

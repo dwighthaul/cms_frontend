@@ -1,0 +1,25 @@
+<div *ngIf="welcomeContent" class="app-container">
+	<div class="title-container">Information importante</div>
+	<div class="content-container">
+		<p>{{ welcomeContent }}</p>
+	</div>
+</div>
+
+<div class="app-container">
+	<div class="title-container">Blog</div>
+	<div class="content-container">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3" *ngFor="let item of blogs">
+					<div class="card mb-3">
+						<div class="card-body">
+							<h5 class="card-title">{{ item.name }}</h5>
+							<small class="text-muted">Created at: {{ item.createdAt | date }}</small>
+							<p class="card-text">{{ item.content }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

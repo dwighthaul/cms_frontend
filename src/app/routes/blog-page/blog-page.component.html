@@ -1,0 +1,84 @@
+<div class="side-panel w-25 d-inline-flex">
+	<app-admin-menu class="w-100"></app-admin-menu>
+</div>
+
+<div class="content-panel w-75 d-inline-flex">
+	<div class="container">
+		<div class="app-container">
+			<div class="title-container">
+				Blog management
+			</div>
+
+			<div class="content-container">
+				<div class="container">
+
+					<!-- Button to toggle the form visibility -->
+					<div class="mb-4">
+						<button class="btn btn-success" (click)="toggleForm()">
+							{{ isFormVisible ? 'Hide Form' : 'Create New Blog' }}
+						</button>
+					</div>
+
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Title</th>
+								<th scope="col">Content</th>
+								<th scope="col">Active</th>
+								<th scope="col">Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let blog of blogs; let i = index">
+								<th scope="row">{{ blog.id }}</th>
+								<td>{{ blog.name }}</td>
+								<td>{{ blog.content }}</td>
+								<td>{{ blog.is_actif ? 'Yes' : 'No' }}</td>
+								<td>
+									<button class="btn btn-sm btn-warning me-2" (click)="editBlog(blog)">Edit</button>
+									<button class="btn btn-sm btn-danger" (click)="deleteBlog(blog.id)">Delete</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div *ngIf="isFormVisible" class="app-container">
+			<div class="title-container">
+				Blog management
+			</div>
+
+			<div class="content-container">
+
+				<!-- Form to create or update a blog -->
+				<form [formGroup]="form" (ngSubmit)="submitForm()" class="mb-4">
+					<div class="mb-3">
+						<label for="name" class="form-label">Blog Title</label>
+						<input type="text" id="name" class="form-control" formControlName="name"
+							placeholder="Enter blog title" />
+					</div>
+
+					<div class="mb-3">
+						<label for="content" class="form-label">Blog Content</label>
+						<textarea id="content" class="form-control" formControlName="content" rows="3"
+							placeholder="Enter blog content"></textarea>
+					</div>
+
+					<div class="form-check mb-3">
+						<input type="checkbox" id="is_actif" class="form-check-input" formControlName="is_actif" />
+						<label for="is_actif" class="form-check-label">Is Active</label>
+					</div>
+
+					<button type="submit" class="btn btn-primary">
+						{{ form.get('id')?.value ? 'Update Blog' : 'Create Blog' }}
+					</button>
+					<button type="button" class="btn btn-secondary ms-2" (click)="resetForm()">Reset</button>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>

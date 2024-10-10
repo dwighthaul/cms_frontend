@@ -1,0 +1,77 @@
+<div class="side-panel w-25 d-inline-flex">
+	<app-admin-menu class="w-100"></app-admin-menu>
+</div>
+
+<div class="content-panel w-75 d-inline-flex">
+	<div class="container">
+		<div class="app-container">
+			<div class="title-container">
+				User Management
+			</div>
+
+			<div class="content-container">
+				<button class="btn btn-primary" (click)="createUser()">Create New User</button>
+
+				<div class="container">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Username</th>
+								<th>Role</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let user of users">
+								<td>{{ user.id }}</td>
+								<td>{{ user.username }}</td>
+								<td>{{ user.Role.rolename }}</td>
+								<td>
+									<button class="btn btn-warning btn-sm" (click)="editUser(user)">Edit</button>
+									<button class="btn btn-danger btn-sm" (click)="deleteUser(user)">Delete</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div *ngIf="isEditing">
+
+			<div class="app-container">
+
+				<div class="title-container">
+					{{ selectedUser?.id === 0 ? 'Create' : 'Edit' }} User
+				</div>
+
+				<div class="content-container">
+
+					<form (ngSubmit)="saveUser()" class="mt-3" *ngIf="selectedUser">
+						<div class="mb-3">
+							<label for="username" class="form-label">Username:</label>
+							<input id="username" class="form-control" [(ngModel)]="selectedUser!.username"
+								name="username" required />
+						</div>
+
+						<div class="mb-3">
+							<label for="roleId" class="form-label">Role:</label>
+							<select class="form-select" name="roleId" [(ngModel)]="selectedUser.Role.id"
+								(change)="onRoleChange()">
+								<option *ngIf="!selectedUser.Role.id" [value]="null" disabled></option>
+								<option *ngFor="let role of roles" [value]="role.id">{{ role.rolename }}</option>
+							</select>
+						</div>
+
+						<button type="submit" class="btn btn-success">Save</button>
+						<button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

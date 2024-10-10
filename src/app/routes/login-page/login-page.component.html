@@ -1,0 +1,30 @@
+<div class="admin-menu-contaniner">
+	<div class="login-container">
+		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+			<h2>Login</h2>
+
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" id="email" formControlName="email" placeholder="Enter your email" />
+				<div *ngIf="submitted && loginForm.controls['email'].invalid" class="error">
+					Email is required and must be valid.
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" id="password" formControlName="password" placeholder="Enter your password" />
+				<div *ngIf="submitted && loginForm.controls['password'].invalid" class="error">
+					Password is required.
+				</div>
+			</div>
+
+			<button type="submit">Login</button>
+
+			<div *ngIf="loginError" class="error-message">
+				Invalid login credentials.
+			</div>
+		</form>
+	</div>
+
+</div>

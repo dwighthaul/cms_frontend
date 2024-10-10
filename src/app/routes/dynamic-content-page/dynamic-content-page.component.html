@@ -1,0 +1,77 @@
+<div class="side-panel w-25 d-inline-flex">
+	<app-admin-menu class="w-100"></app-admin-menu>
+</div>
+
+<div class="content-panel w-75 d-inline-flex">
+	<div class="container">
+		<div class="app-container">
+			<div class="title-container">
+				Dynamic content management
+			</div>
+
+			<div class="content-container">
+
+				<div class="container">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Content</th>
+								<th>Code</th>
+								<th>Active</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let content of dynamicContent">
+								<td>{{ content.id }}</td>
+								<td>{{ content.name }}</td>
+								<td>{{ content.content }}</td>
+								<td>{{ content.code }}</td>
+								<td>{{ content.is_actif ? 'Yes' : 'No' }}</td>
+								<td>
+									<button (click)="editContent(content)" class="btn btn-primary">Edit</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+		<div *ngIf="selectedContent">
+			<div class="app-container">
+				<div class="title-container">Edit Content</div>
+				<div class="content-container">
+
+					<!-- Form for Adding/Editing Content -->
+					<form #contentForm="ngForm" (ngSubmit)="saveContent(selectedContent)">
+						<div class="form-group">
+							<label for="name">Name:</label>
+							<input type="text" id="name" class="form-control" [(ngModel)]="selectedContent.name"
+								name="name" required>
+						</div>
+						<div class="form-group">
+							<label for="content">Content:</label>
+							<textarea id="content" class="form-control" [(ngModel)]="selectedContent.content"
+								name="content" required></textarea>
+						</div>
+						<div class="form-group">
+							<label for="code">Code:</label>
+							<input type="text" id="code" class="form-control" [(ngModel)]="selectedContent.code"
+								name="code" required disabled="true">
+						</div>
+						<div class="form-group">
+							<label for="is_actif">Active:</label>
+							<input type="checkbox" id="is_actif" [(ngModel)]="selectedContent.is_actif" name="is_actif">
+						</div>
+						<button type="submit" class="btn btn-success">Update
+							Content</button>
+						<button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
