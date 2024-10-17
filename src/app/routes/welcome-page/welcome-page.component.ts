@@ -16,6 +16,11 @@ export class WelcomePageComponent {
 
 	blogs: Blog[] = [];
 	welcomeContent: string = "";
+	selectedBlog: Blog | undefined;
+
+	openModale(item: Blog) {
+		this.selectedBlog = item
+	}
 
 
 	callBlogs() {

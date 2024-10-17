@@ -4,8 +4,29 @@
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card-body {
+.card-title {
+	font-weight: bold;
+}
+
+.card-title-cross {
+	float: right;
+	border: 2px solid black;
+	width: 30px;
 	text-align: center;
+	height: 30px;
+	border-radius: 50%;
+}
+
+
+
+.card-text {
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 150px;
+}
+
+.card-body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	height: 150px;

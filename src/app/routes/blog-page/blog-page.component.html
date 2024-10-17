@@ -25,6 +25,8 @@
 								<th scope="col">#</th>
 								<th scope="col">Title</th>
 								<th scope="col">Content</th>
+								<th scope="col">Creation date</th>
+								<th scope="col">Update date</th>
 								<th scope="col">Active</th>
 								<th scope="col">Actions</th>
 							</tr>
@@ -34,6 +36,8 @@
 								<th scope="row">{{ blog.id }}</th>
 								<td>{{ blog.name }}</td>
 								<td>{{ blog.content }}</td>
+								<td>{{ blog.createdAt | date : 'short' }}</td>
+								<td>{{ blog.updatedAt | date : 'short' }}</td>
 								<td>{{ blog.is_actif ? 'Yes' : 'No' }}</td>
 								<td>
 									<button class="btn btn-sm btn-warning me-2" (click)="editBlog(blog)">Edit</button>

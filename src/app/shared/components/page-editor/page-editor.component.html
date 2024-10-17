@@ -1,0 +1,60 @@
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<label for="titre">Titre</label>
+			<input class="form-control" [(ngModel)]="page.titre">
+		</div>
+	</div>
+	<div class="row">
+		<!-- <quill-editor></quill-editor> -->
+		<div *ngFor="let contenu of page.contenu">
+			<hr>
+			<div *ngIf="contenu.type === 'text'">
+				<h3>Texte</h3>
+				<label for="">Contenu</label>
+				<textarea rows="5" class="form-control" [(ngModel)]="contenu.contenu"></textarea>
+			</div>
+
+			<div *ngIf="contenu.type === 'textimage'">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<h3>Texte + image</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<label for="">Contenu</label>
+							<textarea rows="5" class="form-control" [(ngModel)]="contenu.contenu"></textarea>
+						</div>
+						<div class="col">
+							<label for="image">URL Image</label>
+							<input class="form-control" [(ngModel)]="contenu.image">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="contenu.type === 'images'">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<h3>Images</h3>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<button class="btn btn-primary">Ajouter une image</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col" *ngFor="let image of contenu.images">
+							<label for="image">URL Image</label>
+							<input class="form-control" [(ngModel)]="image.src">
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

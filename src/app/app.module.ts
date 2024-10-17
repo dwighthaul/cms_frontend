@@ -13,8 +13,11 @@ import { BlogPageComponent } from './routes/blog-page/blog-page.component';
 import { DynamicContentPageComponent } from './routes/dynamic-content-page/dynamic-content-page.component';
 import { LoginPageComponent } from './routes/login-page/login-page.component';
 import { RolePageComponent } from './routes/role-page/role-page.component';
+import { TempComponent } from './routes/temp/temp.component';
 import { UsersPagesComponent } from './routes/users-pages/users-pages.component';
 import { AdminMenuComponent } from './shared/admin-menu/admin-menu.component';
+import { PageDisplayComponent } from './shared/components/page-display/page-display.component';
+import { PageEditorComponent } from './shared/components/page-editor/page-editor.component';
 
 
 @NgModule({
@@ -28,14 +31,19 @@ import { AdminMenuComponent } from './shared/admin-menu/admin-menu.component';
     DynamicContentPageComponent,
     AdminPageComponent,
     AdminMenuComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    PageEditorComponent,
+    TempComponent,
+    PageDisplayComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    //    QuillModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]
