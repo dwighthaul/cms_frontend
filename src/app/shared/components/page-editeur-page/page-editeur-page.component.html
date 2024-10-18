@@ -1,0 +1,10 @@
+<div class="float-end">
+
+	<button (click)="supprimerParagraphe(contenu)" class="btn btn-danger">Supprimer</button>
+	<button [disabled]="index == 0" (click)="monterParagraphe(contenu)" class="btn btn-primary"><i
+			class="bi bi-arrow-up-circle"></i>
+	</button>
+	<button [disabled]="index == (page.contenu.length -1)" (click)="descendreParagraphe(contenu)"
+		class="btn btn-primary"><i class="bi bi-arrow-down-circle"></i>
+	</button>
+</div>

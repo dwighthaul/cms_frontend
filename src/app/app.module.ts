@@ -7,6 +7,7 @@ import { WelcomePageComponent } from './routes/welcome-page/welcome-page.compone
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill';
 import { AboutPageComponent } from './routes/about-page/about-page.component';
 import { AdminPageComponent } from './routes/admin-page/admin-page.component';
 import { BlogPageComponent } from './routes/blog-page/blog-page.component';
@@ -18,6 +19,7 @@ import { UsersPagesComponent } from './routes/users-pages/users-pages.component'
 import { AdminMenuComponent } from './shared/admin-menu/admin-menu.component';
 import { PageDisplayComponent } from './shared/components/page-display/page-display.component';
 import { PageEditorComponent } from './shared/components/page-editor/page-editor.component';
+import { PageEditeurPageComponent } from './shared/components/page-editeur-page/page-editeur-page.component';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { PageEditorComponent } from './shared/components/page-editor/page-editor
     LoginPageComponent,
     PageEditorComponent,
     TempComponent,
-    PageDisplayComponent
+    PageDisplayComponent,
+    PageEditeurPageComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { PageEditorComponent } from './shared/components/page-editor/page-editor
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    //    QuillModule.forRoot()
+    QuillModule.forRoot()
 
   ],
   providers: [],

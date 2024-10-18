@@ -1,60 +1,141 @@
-<div class="container">
+<div class="container pt-2">
 	<div class="row">
 		<div class="col">
-			<label for="titre">Titre</label>
-			<input class="form-control" [(ngModel)]="page.titre">
+			<div class="title-container">
+				Titre
+			</div>
+			<div class="content-container">
+				<input class="form-control" [(ngModel)]="page.titre">
+			</div>
 		</div>
 	</div>
-	<div class="row">
+
+	<h2>Paragraphes</h2>
+	<div class="row" *ngFor="let contenu of page.contenu; index as i">
 		<!-- <quill-editor></quill-editor> -->
-		<div *ngFor="let contenu of page.contenu">
-			<hr>
+		<div>
 			<div *ngIf="contenu.type === 'text'">
-				<h3>Texte</h3>
-				<label for="">Contenu</label>
-				<textarea rows="5" class="form-control" [(ngModel)]="contenu.contenu"></textarea>
+				<div class="app-container">
+					<div class="title-container">
+						Texte
+					</div>
+					<div class="content-container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<app-page-editeur-page [page]="page" [index]="i"
+										[contenu]="contenu"></app-page-editeur-page>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col">
+									<label for="">Contenu</label>
+									<quill-editor [(ngModel)]="contenu.contenu"></quill-editor>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+			<div *ngIf="contenu.type === 'separator'">
+				<div class="app-container">
+					<div class="title-container">
+						Separateur
+					</div>
+					<div class="content-container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<app-page-editeur-page [page]="page" [index]="i"
+										[contenu]="contenu"></app-page-editeur-page>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 
 			<div *ngIf="contenu.type === 'textimage'">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<h3>Texte + image</h3>
+				<div class="title-container">
+					Texte + image
+				</div>
+				<div class="content-container">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<app-page-editeur-page [page]="page" [index]="i"
+									[contenu]="contenu"></app-page-editeur-page>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-							<label for="">Contenu</label>
-							<textarea rows="5" class="form-control" [(ngModel)]="contenu.contenu"></textarea>
+						<hr>
+						<div class="row">
+							<div class="col">
+								<label for="">Contenu</label>
+								<quill-editor [(ngModel)]="contenu.contenu"></quill-editor>
+							</div>
+							<div class="col">
+								<label for="image">URL Image</label>
+								<input class="form-control" [(ngModel)]="contenu.image">
+							</div>
 						</div>
-						<div class="col">
-							<label for="image">URL Image</label>
-							<input class="form-control" [(ngModel)]="contenu.image">
-						</div>
+
+
+
+
 					</div>
 				</div>
 			</div>
+
 			<div *ngIf="contenu.type === 'images'">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<h3>Images</h3>
+				<div class="title-container">
+					Images
+				</div>
+				<div class="content-container">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<app-page-editeur-page [page]="page" [index]="i"
+									[contenu]="contenu"></app-page-editeur-page>
+							</div>
 						</div>
-					</div>
+						<hr>
 
-					<div class="row">
-						<div class="col">
-							<button class="btn btn-primary">Ajouter une image</button>
+						<div class="row" *ngFor="let image of contenu.images">
+							<div class="col-md-10">
+								<label for="image">URL Image</label>
+								<input class="form-control" [(ngModel)]="image.src">
+							</div>
+							<div class="col-md-2">
+								<button class="btn btn-danger" (click)="supprimerLien(contenu, image)">X</button>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col" *ngFor="let image of contenu.images">
-							<label for="image">URL Image</label>
-							<input class="form-control" [(ngModel)]="image.src">
+						<div class="row pt-2">
+							<div class="col-md-3">
+								<button class="btn btn-primary" (click)="ajouterUneImage(contenu)">Ajouter une
+									image</button>
+							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div class="col">
+		<div class="title-container">
+			Ajouter un paragraphe
+
+		</div>
+		<div class="content-container">
+			<select class="form-select" [(ngModel)]="typePageAAjouter">
+				<option *ngFor="let type of types" [ngValue]="type.value">{{type.name}}</option>
+			</select>
+			<button class="btn btn-primary" (click)="ajouterUnParagraphe()">Ajouter un paragraphe</button>
+		</div>
+
+	</div>
+</div>

@@ -1,11 +1,14 @@
-<div [innerHTML]="page.titre"></div>
+<h1>
+	<div [innerHTML]="page.titre"></div>
+</h1>
 
 <div *ngFor="let contenu of page.contenu">
 
 	<div class="container">
 
 		<div *ngIf="contenu.type === 'text'">
-			<div [innerHTML]="contenu.contenu"></div>
+			<div [innerHTML]="this.sanitizer
+      .bypassSecurityTrustHtml(contenu.contenu)"></div>
 		</div>
 		<div *ngIf="contenu.type === 'separator'">
 			<hr>
@@ -14,8 +17,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-
-						<div [innerHTML]="contenu.contenu"></div>
+						<div [innerHTML]="this.sanitizer
+      .bypassSecurityTrustHtml(contenu.contenu)"></div>
 					</div>
 					<div class="col">
 						<img [src]="contenu.image" alt="Girl in a jacket" width="100%">
@@ -23,7 +26,10 @@
 				</div>
 			</div>
 		</div>
+
 		<div *ngIf="contenu.type === 'images'">
+
+
 			<div class="container">
 				<div class="row">
 					<div class="col" *ngFor="let image of contenu.images">
@@ -37,7 +43,8 @@
 				<div class="row">
 					<div class="col">
 
-						<div [innerHTML]="contenu.contenu"></div>
+						<div [innerHTML]="this.sanitizer
+      .bypassSecurityTrustHtml(contenu.contenu)"></div>
 					</div>
 					<div class="col">
 						<img [src]="contenu.image" alt="Girl in a jacket" width="100%">
