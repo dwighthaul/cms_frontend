@@ -28,6 +28,13 @@ export class PageEditorComponent {
       contenu: ""
     }
   },
+  {
+    value: "separator",
+    name: "Separateur",
+    format: {
+      contenu: ""
+    }
+  },
   ]
 
   ajouterUneImage(contenu: any) {
