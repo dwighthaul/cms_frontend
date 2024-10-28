@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/shared/service/backend/login.service';
 
 @Component({
   selector: 'app-login-page',
@@ -12,9 +13,9 @@ export class LoginPageComponent {
   submitted = false;
   loginError = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService) {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
   }
@@ -33,13 +34,20 @@ export class LoginPageComponent {
     }
 
     // Replace this with your real authentication logic
-    const { email, password } = this.loginForm.value;
-    if (email === 'user@example.com' && password === 'password') {
+
+
+    const { username, password } = this.loginForm.value;
+
+    this.loginService.login(username, password).subscribe(() => {
+
+      sessionStorage
+
+    });
+
+    if (username === 'user@example.com' && password === 'password') {
       // Simulate successful login
       this.router.navigate(['/dashboard']);
     } else {
-      // Show login error
-      this.loginError = true;
     }
   }
 }

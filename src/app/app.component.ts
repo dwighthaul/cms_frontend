@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cms_frontend';
+
+  dataSave() {
+    sessionStorage.setItem('key', 'value');
+
+
+
+  }
 }

@@ -9,7 +9,6 @@ import { Role, User, UserService } from 'src/app/shared/service/backend/user.ser
 })
 export class UsersPagesComponent {
 
-
   users: User[] = [];
   roles: Role[] = [];
   selectedUser: User | null = null;
@@ -24,7 +23,7 @@ export class UsersPagesComponent {
 
   getRoles(): void {
     this.roleService.getRoles().subscribe(roles => {
-      console.log("getRoles" + roles.length)
+      console.log("getRoles : " + roles.length)
       this.roles = roles;
     });
 
@@ -33,7 +32,7 @@ export class UsersPagesComponent {
   // Get all users
   getUsers(): void {
     this.userService.getUsers().subscribe(users => {
-      console.log("getUsers" + users.length)
+      console.log("getUsers : " + users.length)
       this.users = users;
     });
   }
@@ -61,6 +60,13 @@ export class UsersPagesComponent {
     };
     this.isEditing = true;
   }
+
+
+  recharger(): void {
+    this.getUsers();
+  }
+
+
 
   onRoleChange() {
     if (this.selectedUser?.Role) {

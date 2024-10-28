@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 export class CallbackendService {
 
   // @TODO : Recuperer depuis la configuration
-  public baseUrl = 'https://mycmsdemo.com/'; // URL de base de l'API
+  // public baseUrl = 'https://mycmsdemo.com/'; // URL de base de l'API
+  public baseUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
