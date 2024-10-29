@@ -76,17 +76,14 @@
 						<div class="row">
 							<div class="col">
 								<label for="">Contenu</label>
-								<quill-editor [(ngModel)]="contenu.contenu"></quill-editor>
+								<quill-editor [(ngModel)]="contenu.contenu" [modules]="modules" theme="snow">
+								</quill-editor>
 							</div>
 							<div class="col">
 								<label for="image">URL Image</label>
 								<input class="form-control" [(ngModel)]="contenu.image">
 							</div>
 						</div>
-
-
-
-
 					</div>
 				</div>
 			</div>
