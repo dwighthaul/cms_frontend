@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class CallbackendService {
 
   // @TODO : Recuperer depuis la configuration
-  public baseUrl = 'https://mycmsdemo.com/'; // URL de base de l'API
+  public baseUrl = environment.urlBackend
 
   constructor(private http: HttpClient) { }
 
