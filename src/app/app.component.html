@@ -18,7 +18,8 @@
         </li>
       </ul>
       <button class="btn btn-outline-primary ms-3" type="button" routerLink="/login">User</button>
-      <button class="btn btn-outline-primary ms-3" type="button" routerLink="/login">Login</button>
+      <button *ngIf="controleur.afficherLoginOnMenu" class="btn btn-outline-primary ms-3" type="button"
+        routerLink="/login">Login</button>
     </div>
   </div>
 </nav>

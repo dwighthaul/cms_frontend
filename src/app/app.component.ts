@@ -8,10 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'cms_frontend';
 
-  dataSave() {
-    sessionStorage.setItem('key', 'value');
-
-
-
+  controleur = {
+    "afficherLoginOnMenu": true
   }
+
+  public updateMenu() {
+    if (sessionStorage.getItem("id")) {
+      this.controleur.afficherLoginOnMenu = false
+    }
+  }
+
 }
