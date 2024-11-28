@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { BlogService } from 'src/app/shared/service/backend/blog.service';
+import { Blog, BlogService } from 'src/app/shared/service/backend/blog.service';
 
 @Component({
   selector: 'app-blog-page',
@@ -8,7 +8,7 @@ import { BlogService } from 'src/app/shared/service/backend/blog.service';
   styleUrls: ['./blog-page.component.css']
 })
 export class BlogPageComponent {
-  blogs: any[] = [];
+  blogs: Blog[] = [];
   currentBlog: any = null;
   form: FormGroup;
   isFormVisible = false
@@ -31,7 +31,7 @@ export class BlogPageComponent {
 
   // Load all blogs
   loadBlogs() {
-    this.blogService.getBlogs().subscribe((data: any[]) => {
+    this.blogService.getBlogs().subscribe((data: Blog[]) => {
       this.blogs = data;
     });
   }
@@ -81,7 +81,7 @@ export class BlogPageComponent {
   }
 
   // Delete an blog
-  deleteBlog(id: string) {
+  deleteBlog(id: number) {
     this.blogService.deleteBlog(id).subscribe(() => {
       this.loadBlogs();
     });

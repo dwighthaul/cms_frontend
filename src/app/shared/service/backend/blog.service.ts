@@ -10,6 +10,7 @@ export interface Blog {
   content: string;
   createdAt: string;
   updatedAt: string;
+  is_actif: boolean;
 }
 
 
@@ -46,7 +47,7 @@ export class BlogService {
     return this.http.put<Blog>(`${this.apiService.baseUrl}/${this.endpointBase}/${id}`, blog);
   }
 
-  deleteBlog(id: string): Observable<Blog> {
+  deleteBlog(id: number): Observable<Blog> {
     return this.http.delete<Blog>(`${this.apiService.baseUrl}/${this.endpointBase}/${id}`);
   }
 }
