@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -6,6 +7,25 @@ import { Component, Input } from '@angular/core';
 	styleUrls: ['./page-editor.component.css']
 })
 export class PageEditorComponent {
+
+	constructor(private httpClient: HttpClient) { }
+
+	imageToUpload: File | undefined;
+
+
+	upload() {
+		const imageForm = new FormData();
+		if (this.imageToUpload) {
+			console.log("Image presente")
+			imageForm.append('image', this.imageToUpload);
+			this.httpClient.post('http://localhost:3000/fileUpload/uploadDocument', imageForm).subscribe((data: any) => {
+				console.log(data)
+			});
+		} else {
+			console.log("Image NON presente")
+		}
+
+	}
 
 	modules = {
 		toolbar: [

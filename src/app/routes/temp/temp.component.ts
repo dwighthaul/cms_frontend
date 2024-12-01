@@ -24,11 +24,11 @@ export class TempComponent {
         {
           type: "textimage",
           "contenu": "<p><strong class=\"ql-size-large\" style=\"color: rgb(230, 0, 0);\">Nos points forts</strong></p><p><br></p><p>Les points forts qui font de nous des experts à part entière sont nos capacités à répondre précisément à votre demande.</p><p><br></p><p><strong>Nous sommes réactifs, nous respectons les délais</strong> et manipulons votre voiture avec expertise et savoir-faire.</p><p><br></p><p>Grâce à des formations de pointe, nous sommes vos interlocuteurs privilégiés pour intervenir sur les voitures de luxe, y compris sur les anciens modèles, et notamment sur les <strong>carrosseries de Ferrari, Maserati et Tesla dans le Bas-Rhin.</strong></p>",
-          image: "https://www.carrosserie-anneau-du-rhin.fr/wp-content/uploads/2021/11/carrosserie-10-1.jpg"
+          image: "https://cmsimagesph.s3.ca-central-1.amazonaws.com/3jxu5mhr6c051.png"
         },
         {
           type: "images",
-          images: [{ src: "https://www.carrosserie-anneau-du-rhin.fr/wp-content/uploads/2021/11/carrosserie-01-400x284.jpg" }, { src: "https://www.carrosserie-anneau-du-rhin.fr/wp-content/uploads/2021/11/carrosserie-11-400x284.jpg" }, { src: "https://www.carrosserie-anneau-du-rhin.fr/wp-content/uploads/2021/11/carrosserie-15-400x284.jpg" }, { src: "https://www.carrosserie-anneau-du-rhin.fr/wp-content/uploads/2021/11/carrosserie-09-400x284.jpg" }],
+          images: [{ src: "https://cmsimagesph.s3.ca-central-1.amazonaws.com/e48804df-8805-423a-84cd-5957adea8f23.png" }, { src: "https://cmsimagesph.s3.ca-central-1.amazonaws.com/random.jpg" }],
         },
         {
           type: "textimage",

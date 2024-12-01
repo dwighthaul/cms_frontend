@@ -20,6 +20,7 @@ import { AdminMenuComponent } from './shared/admin-menu/admin-menu.component';
 import { PageDisplayComponent } from './shared/components/page-display/page-display.component';
 import { PageEditeurPageComponent } from './shared/components/page-editeur-page/page-editeur-page.component';
 import { PageEditorComponent } from './shared/components/page-editor/page-editor.component';
+import { UploadComponent } from './shared/components/upload/upload.component';
 
 
 
@@ -68,7 +69,8 @@ console.log("--------------------------")
     PageEditorComponent,
     TempComponent,
     PageDisplayComponent,
-    PageEditeurPageComponent
+    PageEditeurPageComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
