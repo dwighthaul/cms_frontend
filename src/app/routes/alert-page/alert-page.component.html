@@ -1,0 +1,80 @@
+<div class="container mt-5">
+	<h2>Alerts</h2>
+
+	<!-- Display list of items -->
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				<th>Status</th>
+				<th>Is Active</th>
+				<th>Details</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of items">
+				<td>{{ item.name }}</td>
+				<td>{{ item.date_debut | date }}</td>
+				<td>{{ item.date_fin | date }}</td>
+				<td>
+					<span [ngClass]="getStatusClass(item.status)" class="badge">
+						{{ item.status }}
+					</span>
+				</td>
+				<td>
+					<span [ngClass]="item.is_actif ? 'badge bg-success' : 'badge bg-danger'">
+						{{ item.is_actif ? 'Active' : 'Inactive' }}
+					</span>
+				</td>
+				<td>
+					<button class="btn btn-info" (click)="viewDetails(item)">View Details</button>
+				</td>
+				<td>
+					<button class="btn btn-warning" (click)="editItem(item)">Edit</button>
+					<button class="btn btn-danger" (click)="deleteItem(item)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- Modal for viewing details -->
+	<div *ngIf="selectedItem" class="modal fade show" style="display: block;" tabindex="-1" role="dialog"
+		aria-labelledby="detailsModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Details for {{ selectedItem.name }}</h5>
+				</div>
+				<div class="modal-body">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Station</th>
+								<th>Result</th>
+								<th>Latitude</th>
+								<th>Longitude</th>
+								<th>Station</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr *ngFor="let detail of selectedItem.details">
+								<td>{{ detail.station_name }}</td>
+								<td [ngClass]="getResultClass(detail.result)" class="badge">{{ detail.result }}</td>
+								<td>{{ detail.latitude }}</td>
+								<td>{{ detail.longitude }}</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" (click)="closeDetails()">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
