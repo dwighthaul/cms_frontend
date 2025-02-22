@@ -69,6 +69,7 @@
 						<thead>
 							<tr>
 								<th>Date du traitement</th>
+								<th>Message</th>
 								<th>Station</th>
 								<th>Result</th>
 								<th>Adresse</th>
@@ -79,6 +80,7 @@
 						<tbody>
 							<tr *ngFor="let detail of selectedItem.details">
 								<td>{{ detail.createdAt | dateFormatPipe }}</td>
+								<td>{{ detail.message }}</td>
 								<td>{{ detail.station_name }}</td>
 								<td [ngClass]="getResultClass(detail.result)" class="badge">{{ detail.result }}</td>
 								<td>{{ detail.latitude }}/{{ detail.longitude }} <a target="_blank"

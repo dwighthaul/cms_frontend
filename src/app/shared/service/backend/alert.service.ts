@@ -8,6 +8,7 @@ export interface Detail {
   id: number;
   date_traitement: string;
   result: string;
+  message: string;
   latitude: number;
   longitude: number;
   station_name: string;
