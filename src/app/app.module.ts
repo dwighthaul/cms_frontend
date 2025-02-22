@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './routes/welcome-page/welcome-page.component';
 
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DateFormatPipe } from './pipe/date-format.pipe';
 import { AboutPageComponent } from './routes/about-page/about-page.component';
 import { AdminPageComponent } from './routes/admin-page/admin-page.component';
 import { AlertPageComponent } from './routes/alert-page/alert-page.component';
@@ -17,9 +18,11 @@ import { LoginPageComponent } from './routes/login-page/login-page.component';
 import { RolePageComponent } from './routes/role-page/role-page.component';
 import { UsersPagesComponent } from './routes/users-pages/users-pages.component';
 import { AdminMenuComponent } from './shared/admin-menu/admin-menu.component';
-import { DateFormatPipe } from './pipe/date-format.pipe';
 
+registerLocaleData(localeFr, 'fr-CA', localeFrExtra);
 
+import localeFrExtra from '@angular/common/locales/extra/fr';
+import localeFr from '@angular/common/locales/fr';
 @NgModule({
   declarations: [
     AppComponent,
