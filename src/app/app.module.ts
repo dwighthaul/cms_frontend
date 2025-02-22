@@ -17,6 +17,7 @@ import { LoginPageComponent } from './routes/login-page/login-page.component';
 import { RolePageComponent } from './routes/role-page/role-page.component';
 import { UsersPagesComponent } from './routes/users-pages/users-pages.component';
 import { AdminMenuComponent } from './shared/admin-menu/admin-menu.component';
+import { DateFormatPipe } from './pipe/date-format.pipe';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AdminMenuComponent } from './shared/admin-menu/admin-menu.component';
     AdminPageComponent,
     AdminMenuComponent,
     LoginPageComponent,
-    AlertPageComponent
+    AlertPageComponent,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule,

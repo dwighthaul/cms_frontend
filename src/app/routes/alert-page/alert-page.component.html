@@ -12,6 +12,7 @@
 				<th>Name</th>
 				<th>Start Date</th>
 				<th>End Date</th>
+				<th>Address</th>
 				<th>Status</th>
 				<th>Is Active</th>
 				<th>Details</th>
@@ -21,8 +22,13 @@
 		<tbody>
 			<tr *ngFor="let item of items">
 				<td>{{ item.name }}</td>
-				<td>{{ item.date_debut | date }}</td>
-				<td>{{ item.date_fin | date }}</td>
+				<td>{{ item.date_debut | dateFormatPipe }}</td>
+				<td>{{ item.date_fin | dateFormatPipe }}</td>
+				<td>{{ item.address_name }}
+					<a target="_blank" [title]="item.address_name"
+						href="{{'https://www.google.com/maps/@' + item.latitude + ',' + item.longitude + ',15.25z?entry=ttu&g_ep=EgoyMDI1MDIxOS4xIKXMDSoASAFQAw%3D%3D'}}">Maps
+						<i class="bi bi-box-arrow-up-right"></i></a>
+				</td>
 				<td>
 					<span [ngClass]="getStatusClass(item.status)" class="badge">
 						{{ item.status }}
@@ -58,9 +64,8 @@
 							<tr>
 								<th>Station</th>
 								<th>Result</th>
-								<th>Latitude</th>
-								<th>Longitude</th>
-								<th>Station</th>
+								<th>Adresse</th>
+								<th>Detail / Station</th>
 							</tr>
 						</thead>
 
@@ -68,8 +73,12 @@
 							<tr *ngFor="let detail of selectedItem.details">
 								<td>{{ detail.station_name }}</td>
 								<td [ngClass]="getResultClass(detail.result)" class="badge">{{ detail.result }}</td>
-								<td>{{ detail.latitude }}</td>
-								<td>{{ detail.longitude }}</td>
+								<td>{{ detail.latitude }}/{{ detail.longitude }} <a target="_blank"
+										href="{{'https://www.google.com/maps/@' + detail.latitude + ',' + detail.longitude + ',15.25z?entry=ttu&g_ep=EgoyMDI1MDIxOS4xIKXMDSoASAFQAw%3D%3D'}}">Maps
+										<i class="bi bi-box-arrow-up-right"></i></a></td>
+								<td>{{ detail.station_name }}</td>
+
+
 							</tr>
 
 						</tbody>

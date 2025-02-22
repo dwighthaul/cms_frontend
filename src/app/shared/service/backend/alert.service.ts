@@ -24,6 +24,7 @@ export interface Alert {
   date_fin: string;
   latitude: number;
   longitude: number;
+  address_name: string;
   is_actif: boolean;
   status: string;
   createdAt: string;
