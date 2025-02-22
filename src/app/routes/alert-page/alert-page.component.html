@@ -2,7 +2,8 @@
 	<h2>Alerts</h2>
 
 	<a target="_blank"
-		href="https://5hcn4pq2re.execute-api.ca-central-1.amazonaws.com/default/communautoAlertTraitement">Lancer le
+		href="https://5hcn4pq2re.execute-api.ca-central-1.amazonaws.com/default/communautoAlertTraitement"><i
+			class="bi bi-box-arrow-up-right"></i> Lancer le
 		traitement</a>
 
 
@@ -27,7 +28,7 @@
 				<td>{{ item.date_fin | dateFormatPipe }}</td>
 				<td>{{ item.address_name }}
 					<br>
-					<strong>Localistation : </strong>
+					<strong>Localisation : </strong>
 					{{ item.latitude }}/{{ item.longitude }}
 					<br>
 					<a target="_blank" [title]="item.address_name"
@@ -62,12 +63,13 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Details for {{ selectedItem.name }}</h5>
+					<h5 class="modal-title">Details for <strong>{{ selectedItem.name }}</strong> </h5>
 				</div>
 				<div class="modal-body">
 					<table class="table table-bordered">
 						<thead>
 							<tr>
+								<th>Date du traitement</th>
 								<th>Station</th>
 								<th>Result</th>
 								<th>Adresse</th>
@@ -77,6 +79,7 @@
 
 						<tbody>
 							<tr *ngFor="let detail of selectedItem.details">
+								<td>{{ detail.createdAt | dateFormatPipe }}</td>
 								<td>{{ detail.station_name }}</td>
 								<td [ngClass]="getResultClass(detail.result)" class="badge">{{ detail.result }}</td>
 								<td>{{ detail.latitude }}/{{ detail.longitude }} <a target="_blank"

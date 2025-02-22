@@ -1,3 +1,8 @@
+.modal {
+	--bs-modal-width: 75%;
+
+}
+
 .title-container {
 	background-color: #fafafa;
 	padding: 10px;
